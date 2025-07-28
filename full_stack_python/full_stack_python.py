@@ -26,6 +26,7 @@ def index() -> rx.Component:
             rx.code(f"{config.app_name}/{config.app_name}.py"),
             size="5",
         ),
+        rx.link("Go to about page", href="/about"),
         rx.input(
             default_value=State.label,
             on_click=State.did_click,
