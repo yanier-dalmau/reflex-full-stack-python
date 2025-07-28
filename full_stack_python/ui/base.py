@@ -17,5 +17,6 @@ def base_page(child: rx.Component, hide_navbar=False, *args, **kwargs) -> rx.Com
         navbar(),
         child,
         rx.logo(),
-        rx.color_mode.button(position="bottom-left"),
+        rx.color_mode.button(position="bottom-left", id="my-light-color-btn"),
+        id="my-base-container"
     )
