@@ -26,7 +26,8 @@ def index() -> rx.Component:
             rx.code(f"{config.app_name}/{config.app_name}.py"),
             size="5",
         ),
-        rx.button("About Us", on_click=State.did_click),
+        # rx.button("About Us", on_click=State.did_click),
+        rx.link(rx.button("About Us"), href="/about"),
         spacing="5",
         justify="center",
         align="center",
@@ -40,5 +41,5 @@ def index() -> rx.Component:
 
 app = rx.App()
 app.add_page(index)
-# app.add_page(pages.about_page, route='/about')
+app.add_page(pages.about_page, route='/about')
 app.add_page(pages.pricing_page, route='/pricing')
