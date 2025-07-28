@@ -26,17 +26,7 @@ def index() -> rx.Component:
             rx.code(f"{config.app_name}/{config.app_name}.py"),
             size="5",
         ),
-        rx.link("Go to about page", href="/about"),
-        rx.input(
-            default_value=State.label,
-            on_click=State.did_click,
-            on_change=State.handle_title_input_change
-        ),
-        rx.link(
-            rx.button("Check out our docs!"),
-            href="https://reflex.dev/docs/getting-started/introduction/",
-            is_external=True,
-        ),
+        rx.button("About Us", on_click=rx.redirect("/about")),
         spacing="5",
         justify="center",
         align="center",
