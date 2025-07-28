@@ -15,9 +15,13 @@ class State(rx.State):
     def did_click(self):
         print("Hello world did click")
 
+def navbar() -> rx.Component:
+    return rx.heading("SaaS", size="9")
+
 def base_page(child: rx.Component, *args, **kwargs) -> rx.Component:
     # print([type(x) for x in args])
     return rx.container(
+        navbar(),
         child,
         rx.logo(),
         rx.color_mode.button(position="bottom-left"),
