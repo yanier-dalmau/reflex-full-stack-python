@@ -14,7 +14,7 @@ class State(rx.State):
         self.label = val
     
     def did_click(self):
-        print("Hello world did click")
+        return rx.redirect("/about-us")
 
     
 def index() -> rx.Component:
@@ -26,7 +26,7 @@ def index() -> rx.Component:
             rx.code(f"{config.app_name}/{config.app_name}.py"),
             size="5",
         ),
-        rx.button("About Us", on_click=rx.redirect("/about")),
+        rx.button("About Us", on_click=State.did_click),
         spacing="5",
         justify="center",
         align="center",
@@ -40,5 +40,5 @@ def index() -> rx.Component:
 
 app = rx.App()
 app.add_page(index)
-app.add_page(pages.about_page, route='/about')
+# app.add_page(pages.about_page, route='/about')
 app.add_page(pages.pricing_page, route='/pricing')
