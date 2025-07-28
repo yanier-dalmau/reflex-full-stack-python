@@ -15,17 +15,17 @@ class State(rx.State):
     def did_click(self):
         print("Hello world did click")
 
-def base_page(*args, **kwargs) -> rx.Component:
-    print([type(x) for x in args])
+def base_page(child: rx.Component, *args, **kwargs) -> rx.Component:
+    # print([type(x) for x in args])
     return rx.container(
-        *args,
+        child,
+        rx.logo(),
         rx.color_mode.button(position="bottom-left"),
     )
     
 def index() -> rx.Component:
     # Welcome Page (Index)
     return base_page(
-        
         rx.vstack(
             rx.heading(State.label, size="9"),
             rx.text(
@@ -46,8 +46,7 @@ def index() -> rx.Component:
             spacing="5",
             justify="center",
             min_height="85vh",
-        ),
-        rx.logo(),
+        )
     )
 
 
