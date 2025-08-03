@@ -4,7 +4,7 @@ import reflex as rx
 
 from rxconfig import config
 from .ui.base import base_page
-from . import pages
+from . import navigation, pages
 
 class State(rx.State):
     """The app state."""
@@ -14,7 +14,7 @@ class State(rx.State):
         self.label = val
     
     def did_click(self):
-        return rx.redirect("/about-us")
+        return rx.redirect(navigation.routes.ABOUT_US_ROUTE)
 
     
 def index() -> rx.Component:
@@ -27,7 +27,7 @@ def index() -> rx.Component:
             size="5",
         ),
         # rx.button("About Us", on_click=State.did_click),
-        rx.link(rx.button("About Us"), href="/about"),
+        rx.link(rx.button("About Us"), href=navigation.routes.ABOUT_US_ROUTE),
         spacing="5",
         justify="center",
         align="center",
@@ -41,5 +41,5 @@ def index() -> rx.Component:
 
 app = rx.App()
 app.add_page(index)
-app.add_page(pages.about_page, route='/about')
-app.add_page(pages.pricing_page, route='/pricing')
+app.add_page(pages.about_page, route=navigation.routes.ABOUT_US_ROUTE)
+app.add_page(pages.pricing_page, route=navigation.routes.PRICING_ROUTE)
