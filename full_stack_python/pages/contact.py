@@ -17,9 +17,10 @@ class ContactState(rx.State):
 def contact_page() -> rx.Component:
     my_form = rx.form(
         rx.vstack(
-            rx.input(name="first_name", placeholder="First Name"),
-            rx.input(name="last_name", placeholder="Last Name"),
-            rx.text_area(name="message", placeholder="Your message"),
+            rx.input(name="first_name", placeholder="First Name", required=True, type='text'),
+            rx.input(name="last_name", placeholder="Last Name", type='text'),
+            rx.input(name="email", placeholder="Your email", type='email'),
+            rx.text_area(name="message", placeholder="Your message", required=True),
             rx.button("Submit", type_="submit"),
         ),
         on_submit=ContactState.handle_submit,
